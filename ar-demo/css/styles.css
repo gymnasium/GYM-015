@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  overflow: hidden; }
+
+h1 {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.75em;
+  margin: 0px;
+  padding: 0 0 10px; }
+
+p {
+  font-family: 'PT Serif', serif;
+  font-size: 1em;
+  line-height: 1.4em;
+  margin: 0px;
+  padding: 0px; }
+
+a {
+  color: #000;
+  text-decoration: none; }
+
+a:hover {
+  color: #000;
+  text-decoration: underline; }
+
+.a-canvas{
+  box-shadow: inset 0px 0px 0px 5px #000;
+}
+
+#infobox {
+  pointer-events: none;
+  text-align: left;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  color: white;
+  text-rendering: optimizeLegibility;
+  position: absolute;
+  z-index: 20000;
+  width: 100%;
+  padding: 20px 10% 32px;
+  bottom: 0;
+  opacity: 0;
+  background: transparent;
+  transition: opacity, background .5s ease;
+  -webkit-transition: opacity, background .5s ease; }
+#infobox h1, #infobox p {
+  opacity: 0;
+  transition: opacity .5s ease;
+  -webkit-transition: opacity .5s ease; 
+}
+#infobox.show {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.3); 
+}
+#infobox.show h1, #infobox.show p {
+  opacity: 1; 
+}

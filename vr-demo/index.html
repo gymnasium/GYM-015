@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Aquent | VR</title>
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
+    <script src="js/query-string.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    
+    <a-scene>
+        <a-assets timeout="1500">
+            <img crossorigin="anonymous" id="entrance" src="assets/1.jpg" offset-y="-90">
+            <img crossorigin="anonymous" id="frontdesk" src="assets/2.jpg" offset-y="0">
+            <img crossorigin="anonymous" id="terrace" src="assets/3.jpg" offset-y="135">
+            <img crossorigin="anonymous" id="kitchen" src="assets/4.jpg" offset-y="120">
+            <img crossorigin="anonymous" id="cafe1" src="assets/5.jpg" offset-y="50">
+            <img crossorigin="anonymous" id="cafe2" src="assets/6.jpg" offset-y="35">
+            <img crossorigin="anonymous" id="cafe3" src="assets/7.jpg" offset-y="-15">
+            <img crossorigin="anonymous" id="hallway1" src="assets/8.jpg" offset-y="-140">
+            <img crossorigin="anonymous" id="hallway2" src="assets/9.jpg" offset-y="180">
+            <img crossorigin="anonymous" id="mid_sharing" src="assets/10.jpg" offset-y="100">
+            <img crossorigin="anonymous" id="library" src="assets/11.jpg" offset-y="-150">
+            <img crossorigin="anonymous" id="trophies" src="assets/12.jpg" offset-y="-150">
+            <img crossorigin="anonymous" id="small_meeting" src="assets/13.jpg" offset-y="80">
+            <img crossorigin="anonymous" id="large_conf" src="assets/14.jpg" offset-y="-70">
+            <img crossorigin="anonymous" id="workspace1" src="assets/15.jpg" offset-y="90">
+            <img crossorigin="anonymous" id="workspace2" src="assets/16.jpg" offset-y="80">
+            <img crossorigin="anonymous" id="workspace3" src="assets/17.jpg" offset-y="40">
+            <img crossorigin="anonymous" id="workspace4" src="assets/18.jpg" offset-y="180">
+            <img crossorigin="anonymous" id="workspace5" src="assets/19.jpg" offset-y="-120">
+            <img crossorigin="anonymous" id="workspace6" src="assets/20.jpg" offset-y="0">
+            <img crossorigin="anonymous" id="workspace7" src="assets/21.jpg" offset-y="-95">
+            <img crossorigin="anonymous" id="garage1" src="assets/22.jpg" offset-y="-80">
+            <img crossorigin="anonymous" id="garage2" src="assets/23.jpg" offset-y="-90">
+
+            <img crossorigin="anonymous" id="cover" src="assets/bottom_cover.png">
+            <img crossorigin="anonymous" id="icn_point" src="assets/icn_point.png">
+            <img crossorigin="anonymous" id="icn_left" src="assets/icn_left.png">
+            <img crossorigin="anonymous" id="icn_right" src="assets/icn_right.png">
+            <img crossorigin="anonymous" id="icn_ar" src="assets/icn_ar.png">
+
+            <a-mixin id="nav" visible="false" scale="0.1 0.1 0.1">
+            </a-mixin>
+        </a-assets>
+
+        <a-entity id="cover" rotate-with-camera geometry="primitive: circle; radius: 0.5;" material="shader:flat; src:#cover; transparent:true;"
+            rotation="-90 0 0" position="0 0 0">
+            <a-entity position="0 -1.75 2.5" rotation="50 0 0">
+                <a-entity marker="icon:icn_ar;" outlink="url:/ar-demo/;"></a-entity>
+            </a-entity>
+        </a-entity>
+
+        <a-entity id="nav_entrance" mixin="nav" visible="true" scale="1 1 1">
+            <a-entity marker="icon:icn_point; yRot:0; yPos:1.2" enter-room="src:#frontdesk;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_frontdesk" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:10; yPos:1.2" enter-room="src:#terrace;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-174; yPos:1.2" enter-room="src:#entrance;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_terrace" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:110; yPos:1.4" enter-room="src:#kitchen;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:8; yPos:1" enter-room="src:#cafe2;"></a-entity>
+            <a-entity marker="icon:icn_right; yRot:-60; yPos:1.2" enter-room="src:#hallway1;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:180; yPos:1.2" enter-room="src:#frontdesk;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_kitchen" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:-6; yPos:1.2" enter-room="src:#cafe1;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-44; yPos:1.4" enter-room="src:#cafe2;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-90; yPos:1.4" enter-room="src:#terrace;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_cafe1" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:-2; yPos:1.2" enter-room="src:#cafe3;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-36; yPos:1.4" enter-room="src:#cafe2;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-160; yPos:1.4" enter-room="src:#kitchen;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-94; yPos:1.4" enter-room="src:#hallway1;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_cafe2" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:150; yPos:1.4" enter-room="src:#cafe1;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:57; yPos:1.2" enter-room="src:#cafe3;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:170; yPos:1.4" enter-room="src:#kitchen;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_cafe3" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:-133; yPos:1.4" enter-room="src:#cafe1;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-80; yPos:1.2" enter-room="src:#cafe2;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_hallway1" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:118; yPos:1.2" enter-room="src:#cafe1;"></a-entity>
+            <a-entity marker="icon:icn_left; yRot:-12; yPos:1.2" enter-room="src:#large_conf;"></a-entity>
+            <a-entity marker="icon:icn_left; yRot:-43; yPos:1.2" enter-room="src:#mid_sharing;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-60; yPos:1.4" enter-room="src:#hallway2;"></a-entity>
+            <a-entity marker="icon:icn_left; yRot:153; yPos:1.2" enter-room="src:#terrace;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_large_conf" mixin="nav">
+            <a-entity marker="icon:icn_right; yRot:-19; yPos:1.4" enter-room="src:#hallway1;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_hallway2" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:80; yPos:1.4" enter-room="src:#hallway1;"></a-entity>
+            <a-entity marker="icon:icn_right; yRot:72; yPos:1.2" enter-room="src:#mid_sharing;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:0; yPos:1.2" enter-room="src:#small_meeting;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-102; yPos:1.4" enter-room="src:#trophies;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_small_meeting" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:-130; yPos:1.2" enter-room="src:#hallway2;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_mid_sharing" mixin="nav">
+            <a-entity marker="icon:icn_right; yRot:-142; yPos:1.2" enter-room="src:#hallway1;"></a-entity>
+            <a-entity marker="icon:icn_left; yRot:-128; yPos:1.2" enter-room="src:#hallway2;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-20; yPos:1.4" enter-room="src:#library;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_library" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:104; yPos:1.4" enter-room="src:#mid_sharing;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-172; yPos:1.4" enter-room="src:#trophies;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_trophies" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:-6; yPos:1.2" enter-room="src:#library;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:80; yPos:1.2" enter-room="src:#hallway2;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-167; yPos:1.4" enter-room="src:#workspace1;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_workspace1" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:10; yPos:1.2" enter-room="src:#trophies;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:155; yPos:1.4" enter-room="src:#workspace2;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:175; yPos:1.4" enter-room="src:#workspace3;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_workspace2" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:-25; yPos:1.2" enter-room="src:#workspace1;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-125; yPos:1.2" enter-room="src:#workspace3;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_workspace3" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:-15; yPos:1.4" enter-room="src:#workspace1;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:60; yPos:1.2" enter-room="src:#workspace2;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:152; yPos:1.2" enter-room="src:#workspace4;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_workspace4" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:-10; yPos:1.2" enter-room="src:#workspace3;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:160; yPos:1.2" enter-room="src:#workspace5;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_workspace5" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:-50; yPos:1.2" enter-room="src:#workspace4;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-168; yPos:1.3" enter-room="src:#workspace6;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:135; yPos:1.1" enter-room="src:#workspace7;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_workspace6" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:20; yPos:1.2" enter-room="src:#workspace5;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:75; yPos:1.2" enter-room="src:#workspace7;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:125; yPos:1.2" enter-room="src:#garage1;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_workspace7" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:-30; yPos:1.2" enter-room="src:#workspace5;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-100; yPos:1.4" enter-room="src:#workspace6;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:150; yPos:1.4" enter-room="src:#garage1;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_garage1" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:132; yPos:1.2" enter-room="src:#garage2;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-8; yPos:1.3" enter-room="src:#workspace7;"></a-entity>
+            <a-entity marker="icon:icn_point; yRot:-56; yPos:1.5" enter-room="src:#workspace6;"></a-entity>
+        </a-entity>
+
+        <a-entity id="nav_garage2" mixin="nav">
+            <a-entity marker="icon:icn_point; yRot:-50; yPos:1.2" enter-room="src:#garage1;"></a-entity>
+        </a-entity>
+
+        <!-- 360-degree image. -->
+        <a-sky src="#entrance" rotation="0 -90 0">
+        </a-sky>
+        <!-- Camera + Cursor -->
+        <a-camera look-controls wasd-controls="enabled:false;">
+            <a-cursor></a-cursor>
+        </a-camera>
+        <!-- End Camera + Cursor -->
+    </a-scene>
+
+</body>
+
+</html>

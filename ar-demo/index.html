@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Aquent | AR</title>
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif" rel="stylesheet">
+
+    <!-- include ar.js for A-Frame -->
+    <!--  <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> 
+    -->
+
+    <script src="js/ensure-https.js"></script>
+    <script src="js/aframe-ar.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded arjs="debugUIEnabled: false;" vr-mode-ui="enabled: false">
+
+        <a-assets>
+            <a-asset-item id="logo-obj" src="assets/logo.obj"></a-asset-item>
+
+            <!-- Blueprint -->
+            <a-asset-item id="plan-obj" src="assets/plan.obj"></a-asset-item>
+            <a-asset-item id="plan-mtl" src="assets/plan.mtl"></a-asset-item>
+            <!-- End Blueprint -->
+
+            <!-- Areas -->
+            <a-asset-item id="area_Arborway-obj" src="assets/area_Arborway.obj"></a-asset-item>
+            <a-asset-item id="area_BackPorch-obj" src="assets/area_BackPorch.obj"></a-asset-item>
+            <a-asset-item id="area_BeaconHill-obj" src="assets/area_BeaconHill.obj"></a-asset-item>
+            <a-asset-item id="area_BunkerHill-obj" src="assets/area_BunkerHill.obj"></a-asset-item>
+            <a-asset-item id="area_Cafe-obj" src="assets/area_Cafe.obj"></a-asset-item>
+            <a-asset-item id="area_Cambridge-obj" src="assets/area_Cambridge.obj"></a-asset-item>
+            <a-asset-item id="area_Den-obj" src="assets/area_Den.obj"></a-asset-item>
+            <a-asset-item id="area_FaneuilHall-obj" src="assets/area_FaneuilHall.obj"></a-asset-item>
+            <a-asset-item id="area_FortHill-obj" src="assets/area_FortHill.obj"></a-asset-item>
+            <a-asset-item id="area_Garage-obj" src="assets/area_Garage.obj"></a-asset-item>
+            <a-asset-item id="area_Greenway-obj" src="assets/area_Greenway.obj"></a-asset-item>
+            <a-asset-item id="area_Hynes-obj" src="assets/area_Hynes.obj"></a-asset-item>
+            <a-asset-item id="area_Kitchen-obj" src="assets/area_Kitchen.obj"></a-asset-item>
+            <a-asset-item id="area_Library-obj" src="assets/area_Library.obj"></a-asset-item>
+            <a-asset-item id="area_OakRoom-obj" src="assets/area_OakRoom.obj"></a-asset-item>
+            <a-asset-item id="area_ParkPlaza-obj" src="assets/area_ParkPlaza.obj"></a-asset-item>
+            <a-asset-item id="area_Pergola-obj" src="assets/area_Pergola.obj"></a-asset-item>
+            <a-asset-item id="area_Reception-obj" src="assets/area_Reception.obj"></a-asset-item>
+            <a-asset-item id="area_Riverway-obj" src="assets/area_Riverway.obj"></a-asset-item>
+            <a-asset-item id="area_TheGarden-obj" src="assets/area_TheGarden.obj"></a-asset-item>
+            <a-asset-item id="area_TheParadise-obj" src="assets/area_TheParadise.obj"></a-asset-item>
+            <!-- End Areas -->
+
+            <a-mixin id="scaling" scale="5.25 5.25 5.25"></a-mixin>
+
+            <a-mixin id="pin" material="color: blue" geometry="primitive: cone; radiusBottom: 0.00001; radiusTop: 0.01; height: 0.04;"></a-mixin>
+        </a-assets>
+
+        <a-light type="point" color="#f9f9f9" intensity="1" position="0 3 0"></a-light>
+
+        <a-anchor preset="custom" type="pattern" url="aquent.patt" hit-testing-enabled='false'>
+            <a-entity mixin="scaling" obj-model="obj: #plan-obj; mtl: #plan-mtl">
+                <a-entity pin="xpos:-0.05;   zpos: 0.13;   url:/vr-demo/?location=entrance ;"></a-entity>
+                <a-entity pin="xpos:-0.1;    zpos: 0.13;   url:/vr-demo/?location=frontdesk ;"></a-entity>
+                <a-entity pin="xpos:-0.135;  zpos: 0.145;  url:/vr-demo/?location=terrace ;"></a-entity>
+                <a-entity pin="xpos:-0.13;   zpos: 0.205;  url:/vr-demo/?location=kitchen ;"></a-entity>
+                <a-entity pin="xpos:-0.175;  zpos: 0.23;   url:/vr-demo/?location=cafe1 ;"></a-entity>
+                <a-entity pin="xpos:-0.2375; zpos: 0.18;   url:/vr-demo/?location=cafe2 ;"></a-entity>
+                <a-entity pin="xpos:-0.2825; zpos: 0.225;  url:/vr-demo/?location=cafe3 ;"></a-entity>
+                <a-entity pin="xpos:-0.172;  zpos: 0.0875; url:/vr-demo/?location=hallway1 ;"></a-entity>
+                <a-entity pin="xpos:-0.172;  zpos:-0.03;   url:/vr-demo/?location=hallway2 ;"></a-entity>
+                <a-entity pin="xpos:-0.2325; zpos: 0.045;  url:/vr-demo/?location=mid_sharing ;"></a-entity>
+                <a-entity pin="xpos:-0.26;   zpos:-0.11;   url:/vr-demo/?location=library ;"></a-entity>
+                <a-entity pin="xpos:-0.16;   zpos:-0.115;  url:/vr-demo/?location=trophies ;"></a-entity>
+                <a-entity pin="xpos:-0.2;    zpos:-0.03;   url:/vr-demo/?location=small_meeting ;"></a-entity>
+                <a-entity pin="xpos:-0.2075; zpos: 0.0875; url:/vr-demo/?location=large_conf ;"></a-entity>
+                <a-entity pin="xpos:-0.11;   zpos:-0.14;   url:/vr-demo/?location=workspace1 ;"></a-entity>
+                <a-entity pin="xpos:-0.005;  zpos:-0.1375; url:/vr-demo/?location=workspace2 ;"></a-entity>
+                <a-entity pin="xpos:-0.005;  zpos:-0.165;  url:/vr-demo/?location=workspace3 ;"></a-entity>
+                <a-entity pin="xpos: 0.0685; zpos:-0.1725; url:/vr-demo/?location=workspace4 ;"></a-entity>
+                <a-entity pin="xpos: 0.13;   zpos:-0.15;   url:/vr-demo/?location=workspace5 ;"></a-entity>
+                <a-entity pin="xpos: 0.175;  zpos:-0.215;  url:/vr-demo/?location=workspace6 ;"></a-entity>
+                <a-entity pin="xpos: 0.195;  zpos:-0.1575; url:/vr-demo/?location=workspace7 ;"></a-entity>
+                <a-entity pin="xpos: 0.27;   zpos:-0.19;   url:/vr-demo/?location=garage1 ;"></a-entity>
+                <a-entity pin="xpos: 0.345;  zpos:-0.18;   url:/vr-demo/?location=garage2 ;"></a-entity>
+            </a-entity>
+
+            <a-entity scale="3.5 3.5 3.5" obj-model="obj: #logo-obj;" material="color:#eb9c2c; shading:flat;">
+            </a-entity>
+
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:Arborway; description:Named after a parkway in the Jamaica Plain neighborhood of Boston, this is one of our medium-sized conference rooms, perfect for meeting with a few team members or hosting a video conference.;"
+                obj-model="obj: #area_Arborway-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#50ad9d; area:Back Porch; description:Open seating work area with power and monitor hookups for laptops.;"
+                obj-model="obj: #area_BackPorch-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:Beacon Hill; description:Named after the historic neighborhood hill in Boston, this is one of our smaller conference rooms, perfect for a quick phone call, video conference, or a 1-1 meeting.;"
+                obj-model="obj: #area_BeaconHill-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:Bunker Hill; description:Named after the famous Charlestown hill where the Battle of Bunker Hill took place, this is one of our smaller conference rooms, perfect for a quick phone call, video conference, or a 1-1 meeting.;"
+                obj-model="obj: #area_BunkerHill-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#729be6; area:Cafe; description:This is the designated area to get your snack on, but the open ceilings, plentiful sunshine, and comfy seating have made this an all-day work space for some. (Note that putting your conference call on speaker will bring harsh judgement, go get a room!);"
+                obj-model="obj: #area_Cafe-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:Cambridge; description:Named after the famous city in the Boston metropolitan area, this is one of our medium-sized conference rooms, perfect for meeting with a few team members or hosting a video conference.;"
+                obj-model="obj: #area_Cambridge-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#50ad9d; area:Den; description:Open seating work area with standing desk options.;"
+                obj-model="obj: #area_Den-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:Faneuil Hall; description:Named after the historical marketplace and meeting hall in Boston, this is one of our medium-sized conference rooms, perfect for meeting with a few team members or hosting a video conference.;"
+                obj-model="obj: #area_FaneuilHall-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:Fort Hill; description:Named after the historic district of Roxbury, this is one of our smaller conference rooms, perfect for a quick phone call, video conference, or a 1-1 meeting.;"
+                obj-model="obj: #area_FortHill-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#50ad9d; area:The Garage; description: Industrial-themed open seating work area with power and monitor hookups for laptops.;"
+                obj-model="obj: #area_Garage-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:Greenway; description:Named after a parkway that stretches through Chinatown, the Financial District, Waterfront, and North End neighborhoods of Boston, this is one of our medium-sized conference rooms, perfect for meeting with a few team members or hosting a video conference.;"
+                obj-model="obj: #area_Greenway-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:Hynes; description:Named after Boston’s largest convention center, this medium-sized conference room features a funky wallpapered interior and is perfect for meeting with a few team members or hosting a video conference.;"
+                obj-model="obj: #area_Hynes-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#7aa57a; area:Kitchen; description:Get your daily dose of H2O or caffeine, stock up on free snacks, or prepare a 3 course meal in our open kitchen. (Ok, nobody prepares 3 course meals here, but they could!);"
+                obj-model="obj: #area_Kitchen-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#50ad9d; area:Library; description:Our version of the “quiet car.” Conversations are kept to a minimum in this room which has a combination of private cubicles and work spaces.;"
+                obj-model="obj: #area_Library-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:The Oak Room; description:The signature conference room with whiteboard walls (and table!), space for a whole team and a large-screen TV for all your video conferencing needs.;"
+                obj-model="obj: #area_OakRoom-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:Park Plaza; description:Named after the nearby historic hotel in Back Bay, this medium-sized and elegantly decorated conference room is perfect for meeting with a few team members or hosting a video conference.;"
+                obj-model="obj: #area_ParkPlaza-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#50ad9d; area:Pergola; description:Open seating work area with standing desk options.;"
+                obj-model="obj: #area_Pergola-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#eb9c2c; area:Reception; description:Visitors check in with the “Captain of First Impressions” when they first arrive. This is a convenient place to hang out or use as a rendezvous point for lunchtime excursions.;"
+                obj-model="obj: #area_Reception-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:Riverway; description:Named after a parkway that begins in the Back Bay Fens neighborhood of Boston, this is one of our medium-sized conference rooms, perfect for meeting with a few team members or hosting a video conference.;"
+                obj-model="obj: #area_Riverway-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:The Garden; description:Industrial-themed open seating work area with power and monitor hookups for laptops.;"
+                obj-model="obj: #area_TheGarden-obj;">
+            </a-entity>
+            <a-entity mixin="scaling" area-highlight="color:#42b533; area:The Paradise; description:Named after the theater and music venue near Boston University, this medium-sized conference room features plush leather chairs and is perfect for meeting with a few team members or hosting a video conference.;"
+                obj-model="obj: #area_TheParadise-obj;">
+            </a-entity>
+
+        </a-anchor>
+
+        <!-- begin camera -->
+        <a-entity camera>
+            <!-- begin cursor -->
+            <a-entity cursor="fuse: false;" crosshair position="0 0 -1"></a-entity>
+            <!-- end cursor -->
+        </a-entity>
+        <!-- end camera -->
+
+    </a-scene>
+
+    <!-- Messaging info text when hover pin -->
+    <div id="infobox">
+        <h1 id="infotitle"></h1>
+        <p id="infodescription"></p>
+    </div>
+
+</body>
+</html>
