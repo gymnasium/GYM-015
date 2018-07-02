@@ -6,7 +6,7 @@
     <title>Aquent | VR</title>
     <meta name="description" content="">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
     <script src="js/query-string.js"></script>
     <script src="js/script.js"></script>
@@ -191,9 +191,11 @@
         <a-sky src="#entrance" rotation="0 -90 0">
         </a-sky>
         <!-- Camera + Cursor -->
-        <a-camera look-controls wasd-controls="enabled:false;">
-            <a-cursor></a-cursor>
-        </a-camera>
+        <a-entity id="camera-rig" position="0 0 0">
+            <a-camera look-controls wasd-controls="enabled:false;" -yhelper>
+                <a-cursor></a-cursor>
+            </a-camera>
+        </a-entity>
         <!-- End Camera + Cursor -->
     </a-scene>
 

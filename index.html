@@ -12,34 +12,40 @@
 		}
 		body {
 		  	background-color: #fff;
-		  	font-family: Arial, sans-serif;
-		  	height: 100%;
-		  	width: 100%;
-		  	margin: 0px;
-		  	overflow: hidden; 
-		}
-		h1 {
 			font-family: 'PT Sans', sans-serif;
-		    display: block;
-		    text-align: center;
-		}   
+			text-align: center;
+		}
 		a {
 			color: #333;
 			text-decoration: none;
 			display: inline-block;
-			font-size: 15vw;
-		    margin: 5vh 5vw;
-		    padding: 5vh 5vw;
-		    background: rgba(0,0,0,0.2);
+			font-size: 4em;
+		    margin: 2vh 2vw;
+		    padding:10px;
+		    width:20vw;
+		    min-width: 200px;
+		    border:1px solid #999;
+		    background-color: rgba(0,0,0,0.2);
 		}
 		a:hover {
-			background: rgba(0,0,0,0.1);
+			background-color: rgba(0,0,0,0.1);
+		}
+		i,.ar,.vr{
+			display: block;
+		    width:100%;
+		    height:140px;
+		    background: #fff url('images/ar.jpg') center no-repeat;
+		    background-size: contain;
+		}
+		.vr{
+			background-image: url('images/vr.jpg');
 		}		
     </style>
 </head>
 <body>
-
-	<h1><a href="/ar-demo">AR</a><a href="/vr-demo">VR</a></h1>
+	<h1>INTRODUCTION TO WEB-BASED REALITIES (VR/AR)</h1>
+	<h2>with Roland Dubois</h2>
+	<p><a href="/ar-demo"><i class="ar"></i>AR</a><a href="/vr-demo"><i class="vr"></i>VR</a></p>
 
 </body>
 </html>

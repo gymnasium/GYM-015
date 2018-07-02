@@ -6,7 +6,7 @@
     <title>Aquent | AR</title>
     <meta name="description" content="">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif" rel="stylesheet">
 
     <!-- include ar.js for A-Frame -->
@@ -18,7 +18,7 @@
 
 </head>
 
-<body style="margin : 0px; overflow: hidden;">
+<body>
     <a-scene embedded arjs="debugUIEnabled: false;" vr-mode-ui="enabled: false">
 
         <a-assets>
@@ -159,7 +159,7 @@
         <!-- begin camera -->
         <a-entity camera>
             <!-- begin cursor -->
-            <a-entity cursor="fuse: false;" crosshair position="0 0 -1"></a-entity>
+            <a-entity cursor="fuse: false;" raycaster="interval:100" position="0 0 -1" crosshair></a-entity>
             <!-- end cursor -->
         </a-entity>
         <!-- end camera -->
