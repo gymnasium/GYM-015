@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Aquent | VR</title>
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="js/script_2.js"></script>
+</head>
+
+
+<body>
+    
+    <a-scene>
+        <a-assets timeout="1500">
+            <img id="entrance" src="assets/1.jpg" offset-y="-90">
+<!-- 
+            <img id="frontdesk" src="assets/2.jpg" offset-y="0">
+            <img id="terrace" src="assets/3.jpg" offset-y="135">
+            <img id="kitchen" src="assets/4.jpg" offset-y="120">
+            <img id="cafe1" src="assets/5.jpg" offset-y="50">
+            <img id="cafe2" src="assets/6.jpg" offset-y="35">
+            <img id="cafe3" src="assets/7.jpg" offset-y="-15">
+            <img id="hallway1" src="assets/8.jpg" offset-y="-140">
+            <img id="hallway2" src="assets/9.jpg" offset-y="180">
+            <img id="mid_sharing" src="assets/10.jpg" offset-y="100">
+            <img id="library" src="assets/11.jpg" offset-y="-150">
+            <img id="trophies" src="assets/12.jpg" offset-y="-150">
+            <img id="small_meeting" src="assets/13.jpg" offset-y="80">
+            <img id="large_conf" src="assets/14.jpg" offset-y="-70">
+            <img id="workspace1" src="assets/15.jpg" offset-y="90">
+            <img id="workspace2" src="assets/16.jpg" offset-y="80">
+            <img id="workspace3" src="assets/17.jpg" offset-y="40">
+            <img id="workspace4" src="assets/18.jpg" offset-y="180">
+            <img id="workspace5" src="assets/19.jpg" offset-y="-120">
+            <img id="workspace6" src="assets/20.jpg" offset-y="0">
+            <img id="workspace7" src="assets/21.jpg" offset-y="-95">
+            <img id="garage1" src="assets/22.jpg" offset-y="-80">
+            <img id="garage2" src="assets/23.jpg" offset-y="-90">
+
+            <img id="logo_cover" src="assets/bottom_cover.png">
+            <img id="icn_point" src="assets/icn_point.png">
+            <img id="icn_left" src="assets/icn_left.png">
+            <img id="icn_right" src="assets/icn_right.png">
+            <img id="icn_ar" src="assets/icn_ar.png">
+ -->
+        </a-assets>
+
+        <!-- 360-degree image. -->
+        <a-sky src="#entrance" rotation="0 -90 0">
+        </a-sky>
+        <!-- Camera + Cursor -->
+        <a-entity id="camera-rig" position="0 1.6 0">
+            <a-camera position="0 0 0" look-controls wasd-controls="enabled:false;" yhelper>
+                <a-cursor></a-cursor>
+            </a-camera>
+        </a-entity>
+        <!-- End Camera + Cursor -->
+    </a-scene>
+
+</body>
+
+</html>
