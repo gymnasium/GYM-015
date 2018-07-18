@@ -16,7 +16,7 @@
 <!-- 
     <script src="js/ensure-https.js"></script>
 -->
-    <script src="js/script_2.js"></script>
+    <script src="js/script_3.js"></script>
     <link rel="stylesheet" href="css/styles.css">
 
 </head>
@@ -25,43 +25,41 @@
     <a-scene>
 
         <a-assets>
-<!-- 
             <img id="marker" src="assets/custommarker.png">
             <a-asset-item id="logo-obj" src="assets/logo.obj"></a-asset-item>
--->
 
-             <!-- Blueprint -->
-<!-- 
+            <!-- Blueprint -->
             <a-asset-item id="plan-obj" src="assets/plan.obj"></a-asset-item>
             <a-asset-item id="plan-mtl" src="assets/plan.mtl"></a-asset-item>
- -->
             <!-- End Blueprint -->
-<!-- 
+
+
             <a-mixin id="scaling" scale="5.25 5.25 5.25"></a-mixin>
+<!--
+            <a-mixin id="pin" material="color: blue" geometry="primitive: cone; radiusBottom: 0.00001; radiusTop: 0.01; height: 0.04;"></a-mixin>
  -->
         </a-assets>
 
         <a-light type="point" color="#f9f9f9" intensity="1" position="0 3 0"></a-light>
 
 
+
         <!-- Positioning helper -->
-<!-- 
         <a-plane 
             rotation="-90 0 0" 
             position="0 0 0"
             src="#marker"
         ></a-plane>
- -->
 
-<!--
         <a-entity scale="3.5 3.5 3.5" obj-model="obj: #logo-obj;" material="color:#eb9c2c; shading:flat;">
         </a-entity>
- -->
 
-<!--  
         <a-entity mixin="scaling" obj-model="obj: #plan-obj; mtl: #plan-mtl">
-        </a-entity>
+<!--
+            <a-entity pin="xpos:-0.05;   zpos: 0.13;   url:/vr-demo/?location=entrance ;"></a-entity>
 -->
+        </a-entity>
+
 
         <!-- begin camera -->
         <a-entity camera>
